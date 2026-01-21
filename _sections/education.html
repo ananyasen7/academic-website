@@ -1,0 +1,30 @@
+<!-- Education section -->
+
+<hr>
+<div class="row" id="education">
+    <div class="col">
+        <h2 class="mb-5">🎓 education</h2>
+        <p></p>
+        <div class="education-list">
+            {% for edu in site.data.education.education %}
+            <div class="education-item mb-4">
+                <div class="edu-row">
+                    {% if edu.logo %}
+                    <div class="edu-logo">
+                        <img src="{{ edu.logo }}" alt="{{ edu.institution }} logo">
+                    </div>
+                    {% endif %}
+                    <div class="edu-details">
+                        <h5 class="mb-1"><strong>{{ edu.institution }}</strong></h5>
+                        {% if edu.degree %}
+                        <p class="mb-1">{{ edu.degree }}{% if edu.field %}, {{ edu.field }}{% endif %}</p>
+                        {% endif %}
+                        <p class="text-muted">{{ edu.time }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <p></p>
+    </div>
+</div>

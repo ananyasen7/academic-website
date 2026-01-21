@@ -32,34 +32,58 @@
         <p></p>
     </div>
 
-    <!-- Inspired by Thanh Tran -- https://codepen.io/thanhrossi/pen/pvOEzq -->
-    <!-- Re-written, redesigned, and integrated (from HTML (Pug) and CSS (Less) to pure HTML and CSS) -->
+    <!-- Contact Card -->
     <div class="contact-card-overlay" id="overlay-bg">
         <div class="information_card">
             <div id="front_end_card">
                 <div class="front">
-                    <div class="contact-info-card">
-                        <div class="code-line"><span class="line-number">1</span><span class="code-content"><span class="keyword">class</span> <span class="namespace">ContactInformationCard</span>: </span></div>
-                        <div class="code-line"><span class="line-number">2</span><span class="code-content">  <span class="keyword">def</span> <span class="function">__init__</span>(<span class="self">self</span>):</span></div>
-                        <div class="code-line"><span class="line-number">3</span><span class="code-content">    <span class="self">self</span>.<span class="self">dept</span>  = <span class="string">"{{ site.data.about.dept }}"</span> </span></div>
-                        <div class="code-line"><span class="line-number">4</span><span class="code-content">    <span class="self">self</span>.<span class="self">lab</span>   = <span class="string">"{{ site.data.about.lab }}"</span> </span></div>
-                        <div class="code-line"><span class="line-number">5</span><span class="code-content">    <span class="self">self</span>.<span class="self">email</span> = <span class="string">"{{ site.data.about.email }}"</span> </span></div>
-                        <div class="code-line"><span class="line-number">6</span><span class="code-content">    <span class="self">self</span>.<span class="self">phone</span> = <span class="string">"{{ site.data.about.phone }}"</span> </span></div>
-                        <div class="code-line"><span class="line-number">7</span><span class="code-content"></span></div>
-                        <div class="code-line"><span class="line-number">8</span><span class="code-content">  <span class="keyword">def</span> <span class="function">flipCard</span>(<span class="self">self</span>):</span></div>
-                        <div class="code-line"><span class="line-number">9</span><span class="code-content">    <span class="function">print</span>(<span class="string">"tap on the card to flip."</span>)</span></div>
-                        <div class="code-line"><span class="line-number">10</span><span class="code-content"></span></div>
-                        <div class="code-line"><span class="line-number">11</span><span class="code-content">  <span class="keyword">def</span> <span class="function">closeCard</span>(<span class="self">self</span>):</span></div>
-                        <div class="code-line"><span class="line-number">12</span><span class="code-content">    <span class="function">print</span>(<span class="string">"tap outside to close it."</span>)</span></div>
+                    <div class="contact-info-card cute-card">
+                        <div class="card-header-cute">
+                            <span class="card-emoji">✉️</span>
+                            <h3>Let's Connect!</h3>
+                        </div>
+                        <div class="card-details">
+                            {% if site.data.about.dept %}
+                            <div class="detail-row">
+                                <span class="detail-icon">🎓</span>
+                                <span class="detail-text">{{ site.data.about.dept }}</span>
+                            </div>
+                            {% endif %}
+                            {% if site.data.about.lab %}
+                            <div class="detail-row">
+                                <span class="detail-icon">🔬</span>
+                                <span class="detail-text">{{ site.data.about.lab }}</span>
+                            </div>
+                            {% endif %}
+                            {% if site.data.about.email %}
+                            <div class="detail-row">
+                                <span class="detail-icon">📧</span>
+                                <a href="mailto:{{ site.data.about.email }}" class="detail-text">{{ site.data.about.email }}</a>
+                            </div>
+                            {% endif %}
+                            {% if site.data.about.phone %}
+                            <div class="detail-row">
+                                <span class="detail-icon">📱</span>
+                                <span class="detail-text">{{ site.data.about.phone }}</span>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <p class="card-hint">tap to flip ↻</p>
                     </div>
                 </div>
                 <div class="back">
-                    <div class="contact-info-card">
-                        <p class="card-name">{{ site.data.about.name }}</p>
-                        <a href="{{ site.data.about.website }}" target="_blank" rel="noopener" class="card-website-link" title="Website">{{ site.data.about.web-dns }}</a>
+                    <div class="contact-info-card cute-card">
+                        <div class="card-back-content">
+                            <span class="back-emoji">🌟</span>
+                            <p class="card-name">{{ site.data.about.name }}</p>
+                            <p class="card-quote">"Exploring the atmosphere, one wave at a time"</p>
+                            {% if site.data.about.website %}
+                            <a href="{{ site.data.about.website }}" target="_blank" rel="noopener" class="card-website-link" title="Website">{{ site.data.about.web-dns }}</a>
+                            {% endif %}
+                            <p class="card-hint">tap outside to close</p>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

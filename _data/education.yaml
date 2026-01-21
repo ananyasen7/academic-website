@@ -1,0 +1,25 @@
+education:
+
+  - institution: University of Nevada, Reno
+    degree: Postgraduate Degree
+    field: Atmospheric Science
+    time: Jan 2024 – Present
+    logo: assets/img/logos/unr.png
+
+  - institution: Indian Institute of Technology Bhubaneswar (IIT Bhubaneswar)
+    degree: Master's degree
+    field: Atmospheric and Oceanic Sciences
+    time: 2021 – 2023
+    logo: assets/img/logos/iitb.svg
+
+  - institution: University of Lucknow
+    degree: Bachelor of Science - BS
+    field: Geology, Physics and Mathematics
+    time: 2018 – 2021
+    logo: assets/img/logos/uol.jpeg
+
+  - institution: Study Hall School
+    degree:
+    field:
+    time: 2004 – 2018
+    logo: assets/img/logos/shall.jpeg

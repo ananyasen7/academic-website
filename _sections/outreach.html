@@ -3,11 +3,18 @@
 <hr>
 <div class="row" id="outreach">
     <div class="col">
-        <h2 clss="mb-5">🧩 outreach activities</h2>
-        <p></p>
-        {% for mini-project in site.data.outreach.mini-projects %}
-            {% include_relative _libs/outreach_widget.html %}
-        {% endfor %}
-        <p></p>
+        <h2 class="mb-4">🧩 outreach & activities</h2>
+        <div class="outreach-list">
+            {% for activity in site.data.outreach.activities %}
+            <div class="outreach-item">
+                <div class="outreach-header">
+                    {% if activity.year %}<span class="outreach-year">{{ activity.year }}</span>{% endif %}
+                    <span class="outreach-role">{{ activity.role }}</span>
+                </div>
+                <div class="outreach-org"><strong>{{ activity.organization }}</strong></div>
+                <div class="outreach-desc">{{ activity.description }}</div>
+            </div>
+            {% endfor %}
+        </div>
     </div>
 </div>

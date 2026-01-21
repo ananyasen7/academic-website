@@ -20,10 +20,13 @@ btn.on('click', function(e) {
 
 
 // Play pronunciation audio when the emoji is clicked
-document.getElementById('volumeEmoji').addEventListener('click', function() {
-    const pronunicationAudio = new Audio('assets/sounds/khang.mp3');
-    pronunicationAudio.play();
-});
+var volumeEmoji = document.getElementById('volumeEmoji');
+if (volumeEmoji) {
+    volumeEmoji.addEventListener('click', function() {
+        const pronunicationAudio = new Audio('assets/sounds/khang.mp3');
+        pronunicationAudio.play();
+    });
+}
 
 
 // Toggle navigation menu bar
@@ -76,6 +79,7 @@ function toggleTheme() {
         buttonEl.classList.add('dark-theme');
         buttonEl.innerText = '☀️';
         speechBalloon.innerText = 'lights turned off!';
+        localStorage.setItem('theme', 'dark');
         clickSound.play();
     } else {
         bodyEl.classList.remove('dark-theme');
@@ -84,6 +88,7 @@ function toggleTheme() {
         buttonEl.classList.add('light-theme');
         buttonEl.innerText = '🌙';
         speechBalloon.innerText = 'lights turned on!';
+        localStorage.setItem('theme', 'light');
         clickSound.play();
     }
 }
@@ -207,26 +212,31 @@ function progressBar() {
 }
 
 
-// Scripts to activate/deactivate contact info card 
+// Scripts to activate/deactivate contact info card
 var overlaybg = document.getElementById('overlay-bg');
+var contactCardTrigger = document.getElementById('contact-card-trigger');
 
-document.getElementById('contact-card-trigger').onclick = function() {
-    overlaybg.style.display = 'flex';
-};
+if (contactCardTrigger && overlaybg) {
+    contactCardTrigger.onclick = function() {
+        overlaybg.style.display = 'flex';
+    };
 
-overlaybg.addEventListener('click', function(event) {
-    if (event.target === overlaybg) {
-        overlaybg.style.display = 'none';
-    }
-});
-
+    overlaybg.addEventListener('click', function(event) {
+        if (event.target === overlaybg) {
+            overlaybg.style.display = 'none';
+        }
+    });
+}
 
 // Play the flipping-card sound when user flips the contact info card
-document.getElementById('front_end_card').addEventListener('click', function() {
-    this.classList.toggle('flip');
-    const flipAudio = new Audio('assets/sounds/flipcard_sound.mp3');
-    flipAudio.play();
-});
+var frontEndCard = document.getElementById('front_end_card');
+if (frontEndCard) {
+    frontEndCard.addEventListener('click', function() {
+        this.classList.toggle('flip');
+        const flipAudio = new Audio('assets/sounds/flipcard_sound.mp3');
+        flipAudio.play();
+    });
+}
 
 
 // Get all filter buttons and change their active status as user clicks
@@ -414,6 +424,8 @@ function initializeIsotopeProjects() {
 document.addEventListener('DOMContentLoaded', () => {
 
     const container = document.getElementById('github-cards');
+    if (!container) return;
+
     const repoElements = container.querySelectorAll('div[data-url]');
 
     repoElements.forEach(repoElement => {
@@ -597,28 +609,43 @@ $(document).ready(function() {
 });
 
 
-// Dark/Light theme based on predefined time
+// Dark/Light theme based on saved preference or predefined time
 document.addEventListener('DOMContentLoaded', function() {
     const buttonEl = document.querySelector('.toggle-theme-button');
     const speechBalloon = document.querySelector('.speech-balloon');
-    var currentHour = new Date().getHours();
+    const savedTheme = localStorage.getItem('theme');
 
-    // Dark theme is used between 7 PM of last day
-    // to 7 AM next day. Otherwise, use light theme
-    if (currentHour > 19 || currentHour <= 7) {
+    if (savedTheme === 'dark') {
         document.body.classList.add('dark-theme');
         buttonEl.innerText = '☀️';
-        speechBalloon.innerText = 'it\'s night, lights off!';
-    } else {
+        speechBalloon.innerText = 'welcome back!';
+    } else if (savedTheme === 'light') {
         document.body.classList.add('light-theme');
         buttonEl.innerText = '🌙';
-        speechBalloon.innerText = 'it\'s day, lights on!';
+        speechBalloon.innerText = 'welcome back!';
+    } else {
+        // No saved preference, use time-based theme
+        var currentHour = new Date().getHours();
+        // Dark theme is used between 7 PM of last day
+        // to 7 AM next day. Otherwise, use light theme
+        if (currentHour > 19 || currentHour <= 7) {
+            document.body.classList.add('dark-theme');
+            buttonEl.innerText = '☀️';
+            speechBalloon.innerText = 'it\'s night, lights off!';
+        } else {
+            document.body.classList.add('light-theme');
+            buttonEl.innerText = '🌙';
+            speechBalloon.innerText = 'it\'s day, lights on!';
+        }
     }
 });
 
 
 // Automatically update year in footer
-document.getElementById("currentYear").textContent = new Date().getFullYear();
+var currentYearEl = document.getElementById("currentYear");
+if (currentYearEl) {
+    currentYearEl.textContent = new Date().getFullYear();
+}
 
 
 // Canvas for particle moves
