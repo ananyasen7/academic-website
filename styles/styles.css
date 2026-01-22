@@ -270,6 +270,7 @@ code {
     border: 5px solid #ffffff;
     z-index: 2;
     transition: 0.5s;
+    object-fit: cover;
 }
 .light-theme .profile-image {
     border: 5px solid #ffffff
