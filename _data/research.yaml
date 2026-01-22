@@ -9,23 +9,6 @@ categories:
 
 projects:
 
-  - title: Investigating Cyclogenesis and the Genesis of Large Amplitude Mesoscale Gravity Waves
-    system-name:
-    logo: assets/img/logos/ams.jpeg
-    conference: American Meteorological Society (AMS) Annual Meeting
-    conference-web: https://ui.adsabs.harvard.edu/abs/2025AMS...10552696S/abstract
-    status: Oral Presentation
-    authors: <u>Sen, A.</u> & Kaplan, M. L.
-    pdf:
-    code:
-    demo:
-    slides:
-    talk:
-    poster:
-    abstract-less: New Orleans, Louisiana, January 12-16, 2025
-    tag: more_ams2025
-    category: proceedings
-
   - title: Interplay Between Deep Convection and Mesoscale Gravity Waves
     system-name:
     logo: assets/img/logos/agu.png
@@ -41,6 +24,23 @@ projects:
     poster:
     abstract-less: New Orleans, Louisiana, December 15-19, 2025
     tag: more_agu2025
+    category: proceedings
+
+  - title: Investigating Cyclogenesis and the Genesis of Large Amplitude Mesoscale Gravity Waves
+    system-name:
+    logo: assets/img/logos/ams.jpeg
+    conference: American Meteorological Society (AMS) Annual Meeting
+    conference-web: https://ui.adsabs.harvard.edu/abs/2025AMS...10552696S/abstract
+    status: Oral Presentation
+    authors: <u>Sen, A.</u> & Kaplan, M. L.
+    pdf:
+    code:
+    demo:
+    slides:
+    talk:
+    poster:
+    abstract-less: New Orleans, Louisiana, January 12-16, 2025
+    tag: more_ams2025
     category: proceedings
 
   - title: The Role of Upper-level Jet Imbalance in a Mesoscale Gravity Wave Event Organized Near Complex Terrain
