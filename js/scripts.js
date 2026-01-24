@@ -23,7 +23,7 @@ btn.on('click', function(e) {
 var volumeEmoji = document.getElementById('volumeEmoji');
 if (volumeEmoji) {
     volumeEmoji.addEventListener('click', function() {
-        const pronunicationAudio = new Audio('assets/sounds/khang.mp3');
+        const pronunicationAudio = new Audio('assets/sounds/ananya.mp4');
         pronunicationAudio.play();
     });
 }
