@@ -100,12 +100,8 @@
         <p></p>
         {{ site.data.about.second-paragraph }}      
         <p></p>
-        <div class="codebox">
-            {{ site.data.about.research-introduction }}
-            <p></p> 
-            {% for interest in site.data.about.research-interests %}
-                {% include_relative _libs/about_widget.html %}
-            {% endfor %}
-        </div>
+        <p></p>
+        {{ site.data.about.third-paragraph }}      
+        <p></p>
     </div>
 </div>
